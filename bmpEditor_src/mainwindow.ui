@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>380</width>
+    <height>150</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="contextMenuPolicy">
+   <enum>Qt::NoContextMenu</enum>
+  </property>
+  <property name="windowTitle">
+   <string>BMP editor Кузенков Василий АВТ-615</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="toolTipDuration">
+    <number>0</number>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <item row="0" column="0">
+     <layout class="QGridLayout" name="gridImageLayout">
+      <property name="horizontalSpacing">
+       <number>5</number>
+      </property>
+      <property name="verticalSpacing">
+       <number>0</number>
+      </property>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>380</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="defaultUp">
+    <bool>false</bool>
+   </property>
+   <property name="nativeMenuBar">
+    <bool>true</bool>
+   </property>
+   <widget class="QMenu" name="fileMenu">
+    <property name="title">
+     <string>Файл</string>
+    </property>
+    <addaction name="openFileAction"/>
+    <addaction name="separator"/>
+    <addaction name="saveAsAction"/>
+    <addaction name="separator"/>
+   </widget>
+   <widget class="QMenu" name="editMenu">
+    <property name="title">
+     <string>Редактирование</string>
+    </property>
+    <addaction name="contrastAction"/>
+    <addaction name="separator"/>
+    <addaction name="extensionAction"/>
+    <addaction name="extension2Action"/>
+    <addaction name="separator"/>
+    <addaction name="lensAction"/>
+    <addaction name="sphereAction"/>
+   </widget>
+   <widget class="QMenu" name="drawMenu">
+    <property name="title">
+     <string>Рисование</string>
+    </property>
+    <addaction name="lineAction"/>
+    <addaction name="circleAction"/>
+    <addaction name="dotAction"/>
+   </widget>
+   <addaction name="fileMenu"/>
+   <addaction name="editMenu"/>
+   <addaction name="drawMenu"/>
+  </widget>
+  <action name="openFileAction">
+   <property name="text">
+    <string>Открыть bmp...</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="saveAsAction">
+   <property name="text">
+    <string>Сохранить как...</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+S</string>
+   </property>
+  </action>
+  <action name="contrastAction">
+   <property name="text">
+    <string>Контраст\Яркость</string>
+   </property>
+  </action>
+  <action name="brightAction">
+   <property name="text">
+    <string>Яркость</string>
+   </property>
+  </action>
+  <action name="extensionAction">
+   <property name="text">
+    <string>Разрешение (3х3)</string>
+   </property>
+  </action>
+  <action name="lensAction">
+   <property name="text">
+    <string>Линза</string>
+   </property>
+  </action>
+  <action name="sphereAction">
+   <property name="text">
+    <string>Сфера (fisheye)</string>
+   </property>
+  </action>
+  <action name="lineAction">
+   <property name="text">
+    <string>Линии</string>
+   </property>
+   <property name="toolTip">
+    <string>Рисование линии алгоритмом Брезенхема. Выбираем две точки, и между ними сразу проводится линия.</string>
+   </property>
+  </action>
+  <action name="circleAction">
+   <property name="text">
+    <string>Окружности</string>
+   </property>
+   <property name="toolTip">
+    <string>Рисование окружности алгоритмом Минчера. Выбираем две точки, первая послужит центром, а вторая основанием окружности.</string>
+   </property>
+  </action>
+  <action name="dotAction">
+   <property name="text">
+    <string>Точка</string>
+   </property>
+  </action>
+  <action name="extension2Action">
+   <property name="text">
+    <string>Разрешение (2х2)</string>
+   </property>
+  </action>
+  <action name="action_WAV">
+   <property name="text">
+    <string>Открыть окно редактора WAV</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+W</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
