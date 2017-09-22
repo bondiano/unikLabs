@@ -1,53 +1,57 @@
 #include <iostream>
 
 using namespace std;
+void printm(int order, float **matrix){
+    cout << endl;
+    for(int i = 0; i< order; i++){
+        for(int j = 0; j< order; j++)
+            cout << matrix[i][j] << ' ';
+        cout << endl;
+    }
+}
 
-int main(int argc, char *argv[])
+int main()
 {
-    cout << "rows count, elements in rows count:\n";
-    int rc = 0, el = 0;
-    cin >> rc >> el;
-    double **matrix = new double*[rc];
-    cout << "enter rows el:\n";
-    for(int i = 0; i < rc; i++){
-        matrix[i] = new double[el];
-        for(int j = 0; j < el; j++){
+    cout << "Matrix order:\n";
+    int order = 0;
+    cin >> order;
+    float **matrix = new float*[order];
+    cout << "Input rows el:\n";
+    for(int i = 0; i < order; i++){
+        matrix[i] = new float[order];
+        for(int j = 0; j < order; j++){
             cin >> matrix[i][j];
         }
     }
 
-    cout << "your matrix:\n";
-    for(int i = 0; i< rc; i++){
-        for(int j = 0; j< el; j++){
+    cout << "Your matrix:\n";
+    for(int i = 0; i< order; i++){
+        for(int j = 0; j< order; j++){
             cout << matrix[i][j] << ' ';
         }
         cout << endl;
     }
-    double det = 1;
+
+    float det = 1;
     int position = 0;
-    while(position != rc){
-        for(int i = 0; i < rc; i++){
-            det *= matrix[i][i];
-            double beg = matrix[i][i];
-            for(int j = 0; j < el; j++)
-                matrix[i][j] /= beg;
+    while(position != order){
+        printm(order,matrix);
+        det*=matrix[position][position];
+        for(int i = position; i < order; i++){
+            float beg = matrix[i][position];
+            if(beg == 0) continue;
+            for(int j = position; j < order; j++){
+                matrix[i][j] = roundf(matrix[i][j]/beg);
+            }
         }
 
-
-        for(int i = position; i < rc; i++){
-            for(int j = position; j < el; j++){
+        for(int i = position+1; i < order; i++){
+            if(matrix[i][position] == 0) continue;
+            for(int j = position; j < order; j++){
                 matrix[i][j] -= matrix[position][j];
             }
         }
-        position++;
-    }
-
-    cout << "your matrix after operations:\n";
-    for(int i = 0; i< rc; i++){
-        for(int j = 0; j< el; j++){
-            cout << matrix[i][j] << ' ';
-        }
-        cout << endl;
+        ++position;
     }
 
     cout << "det: " << det << endl;
