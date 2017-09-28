@@ -98,10 +98,75 @@ sqMatrix &sqMatrix::operator= (sqMatrix matrix)
         return *this;
     }
 
-    for (unsigned int i = 0; i < order; i++) {
-        delete[] value[i];
+    if(value != nullptr){
+        for (unsigned int i = 0; i < order; i++) {
+            delete[] value[i];
+        }
+        delete[] value;
     }
-    delete[] value;
+
+    if(matrix.getOrder() != order){
+        order = matrix.getOrder();
+        value = new float*[order];
+        for(unsigned int i = 0; i < order; i++){
+            value[i] = new float[order];
+            for(unsigned int j = 0; j < order; j++){
+                value[i][j] = matrix.getAt(i,j);
+            }
+        }
+        return *this;
+    }
+
+    for(unsigned int i = 0; i < order; i++){
+        for(unsigned int j = 0; j < order; j++){
+            value[i][j] = matrix.getAt(i,j);
+        }
+    }
+
+    return *this;
+
+}
+
+sqMatrix sqMatrix::operator++(int)
+{
+    float ** rValue = new float*[order];
+    for(unsigned int i = 0; i < order ; i++){
+        rValue[i] = new float[order];
+        for(unsigned int j = 0; j < order; j++)
+            rValue[i][j] = value[i][j] + 1;
+    }
+    sqMatrix resut(order,rValue);
+    return resut;
+}
+
+sqMatrix &sqMatrix::operator++()
+{
+    for(unsigned int i = 0; i < order ; i++){
+        for(unsigned int j = 0; j < order; j++)
+             value[i][j] += 1;
+    }
+    return *this;
+}
+
+sqMatrix sqMatrix::operator--(int)
+{
+    float ** rValue = new float*[order];
+    for(unsigned int i = 0; i < order ; i++){
+        rValue[i] = new float[order];
+        for(unsigned int j = 0; j < order; j++)
+            rValue[i][j] = value[i][j] - 1;
+    }
+    sqMatrix resut(order,rValue);
+    return resut;
+}
+
+sqMatrix &sqMatrix::operator--()
+{
+    for(unsigned int i = 0; i < order ; i++){
+        for(unsigned int j = 0; j < order; j++)
+             value[i][j] -= 1;
+    }
+    return *this;
 }
 
 sqMatrix::operator int() const

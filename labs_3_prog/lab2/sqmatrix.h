@@ -21,10 +21,10 @@ public:
     friend sqMatrix operator-(sqMatrix matrix1,  sqMatrix matrix2);
     operator int() const;
     sqMatrix &operator= (sqMatrix matrix);
-    //sqMatrix operator++(int);
-    //sqMatrix &operator++();
-    //sqMatrix operator--(int);
-    //sqMatrix &operator--();
+    sqMatrix operator++(int);
+    sqMatrix &operator++();
+    sqMatrix operator--(int);
+    sqMatrix &operator--();
 };
 
 #endif // SQMATRIX_H

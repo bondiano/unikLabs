@@ -41,7 +41,11 @@ int main()
     cout << "Your matrix - matrix by copy constructor:\n";
     (*sqmatrix-*matrixCopy).print();
 
-    cout << "Your matrix to int:\n" << (int)*sqmatrix;
+    cout << "Your matrix to int(return order):\n" << (int)*sqmatrix << endl;
+
+    cout << "Your matrix++:\n";
+    (++(*sqmatrix)).print();
+
     delete defaultMatrix;
     delete sqmatrix;
     delete matrixCopy;
