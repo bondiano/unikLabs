@@ -129,13 +129,11 @@ sqMatrix &sqMatrix::operator= (sqMatrix matrix)
 
 sqMatrix sqMatrix::operator++(int)
 {
-    float ** rValue = new float*[order];
+    sqMatrix resut(*this);
     for(unsigned int i = 0; i < order ; i++){
-        rValue[i] = new float[order];
         for(unsigned int j = 0; j < order; j++)
-            rValue[i][j] = value[i][j] + 1;
+            value[i][j] = value[i][j] + 1;
     }
-    sqMatrix resut(order,rValue);
     return resut;
 }
 

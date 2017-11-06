@@ -5,8 +5,11 @@ CONFIG -= qt
 
 SOURCES += main.cpp \
     sqmatrix.cpp \
-    menu.cpp
+    menu.cpp \
+    sqmatrixdet.cpp
 
 HEADERS += \
     sqmatrix.h \
-    menu.h
+    menu.h \
+    sqmatrixdet.h
+
