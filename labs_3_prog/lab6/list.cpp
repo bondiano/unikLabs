@@ -84,18 +84,16 @@ List::Element::Element(sqMatrix &matrix): next(nullptr), perv(nullptr)
 {
     sqMatrix* tempMatrix = nullptr;
 
-    switch (typeid(matrix)) {
-        case typeid(sqMatrix):
-            tempMatrix = new sqMatrix(matrix);
-            break;
-        case typeid(sqMatrixDet):
-            tempMatrix = new sqMatrixDet(matrix);
-            break;
-        case typeid(namedMatrix):
-            tempMatrix = new namedMatrix(matrix);
-            break;
-        default:
-            break;
+    if(typeid(matrix) == typeid(sqMatrix)) {
+        tempMatrix = new sqMatrix(matrix);
+    }
+
+    if(typeid(matrix) == typeid(sqMatrixDet)) {
+        tempMatrix = new sqMatrixDet(matrix);
+    }
+
+    if(typeid(matrix) == typeid(namedMatrix)) {
+        tempMatrix = new namedMatrix(matrix);
     }
 
     el = tempMatrix;

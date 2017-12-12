@@ -9,6 +9,10 @@ sqMatrix::sqMatrix() : order(1)
 
 sqMatrix::sqMatrix(unsigned int order, float **value) : order(order)
 {
+    if(order < 1) {
+        throw std::runtime_error("Wrong order");
+    }
+
     this->value = new float*[order];
     for(unsigned int i = 0; i < order; i++){
         this->value[i] = new float[order];
