@@ -59,6 +59,24 @@ void sqMatrix::print() const
     }
 }
 
+bool sqMatrix::operator==(sqMatrix &matrix)
+{
+    if(order != matrix.order){
+        return false;
+    }
+
+    for(unsigned i = 0; i < order; i++)
+        for(unsigned j = 0; j < order; j++)
+            if(matrix.getAt(i,j) != value[i][j]) return false;
+
+    return true;
+}
+
+float **sqMatrix::getValues()
+{
+    return value;
+}
+
 unsigned int sqMatrix::getOrder() const
 {
     return order;

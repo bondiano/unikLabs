@@ -39,6 +39,10 @@ public:
 
     //lab4
     virtual void print() const;
+
+    //lab5
+   bool operator== (sqMatrix& matrix);
+   float** getValues();
 };
 
 #endif // SQMATRIX_H

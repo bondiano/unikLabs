@@ -136,6 +136,7 @@ sqMatrix loadTxt(){
     }
 
     delete sqmatrix;
+
 }
 
 void saveBin(sqMatrix *matrix){
