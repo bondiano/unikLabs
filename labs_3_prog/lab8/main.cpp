@@ -3,8 +3,11 @@
 #include <set>
 #include <iterator>
 #include "sqmatrix.h"
+#include <chrono>
 
 using namespace std;
+typedef chrono::high_resolution_clock Clock;
+
 /* Для встроенного типа и класса из лабораторной работы №1 провести временной анализ заданных шаблонных классов на основных операциях:
  * добавление, удаление, поиск, сортировка.
  * Использовать итераторы для работы с контейнерами.
@@ -43,6 +46,7 @@ int main()
         }
     }
 
+    auto t1 = Clock::now();
     // Добавление в стэк
     for(int i = 0; i < 10000; i++) {
         if(i % 3 == 0) {
@@ -54,13 +58,23 @@ int main()
         }
     }
     cout << "Matrix stack size: " << matrixStack.size() << endl;
+    auto t2 = Clock::now();
+    std::cout << "Delta push to stack t2-t1: "
+                  << chrono::duration_cast<chrono::milliseconds>(t2 - t1).count()
+                  << " milliseconds" << std::endl;
 
+    t1 = Clock::now();
     // Удаление из стека
     while(!matrixStack.empty()) {
         matrixStack.pop();
     }
     cout << "Matrix stack after pop all elements size: " << matrixStack.size() << endl;
+    t2 = Clock::now();
+        std::cout << "Delta pop from stack t2-t1: "
+                      << chrono::duration_cast<chrono::milliseconds>(t2 - t1).count()
+                      << " milliseconds" << std::endl;
 
+    t1 = Clock::now();
     multiset<sqMatrix>::iterator i;
     // Добавление в множество с дубликатами
     for(int i = 0; i < 10000; i++) {
@@ -82,11 +96,20 @@ int main()
     i = matrixSet.end();
     i--;
     i->print();
+    t2 = Clock::now();
+        std::cout << "Delta add and show multiset t2-t1: "
+                      << chrono::duration_cast<chrono::milliseconds>(t2 - t1).count()
+                      << " milliseconds" << std::endl;
 
+    t1 = Clock::now();
     // Отчистка множества
     matrixSet.clear();
 
     cout << "Matrix multyset size after clear(): " << matrixSet.size() << endl;
+    t2 = Clock::now();
+        std::cout << "Delta clear multiset t2-t1: "
+                      << chrono::duration_cast<chrono::milliseconds>(t2 - t1).count()
+                      << " milliseconds" << std::endl;
 
     for (unsigned int i = 0; i < 100; i++) {
         delete[] values1[i];

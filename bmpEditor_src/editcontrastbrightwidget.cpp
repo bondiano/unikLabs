@@ -1,4 +1,4 @@
-#include "editContrastBrightWidget.h"
+#include "editcontrastbrightwidget.h"
 
 editContrastBrightWidget::editContrastBrightWidget(bmpImage *image, QWidget *parent) : QWidget(parent)
 {

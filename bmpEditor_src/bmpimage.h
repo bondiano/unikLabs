@@ -2,6 +2,7 @@
 #define BMPIMAGE_H
 #include <fstream>
 #include <QDebug>
+#include <cmath>
 
 using namespace std;
 

@@ -10,6 +10,7 @@
 #include <QColorDialog>
 #include <QMouseEvent>
 #include <fstream>
+#include <cmath>
 #include "bmpimage.h"
 #include "drawbmpimage.h"
 #include "editcontrastbrightwidget.h"
