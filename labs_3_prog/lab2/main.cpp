@@ -45,8 +45,7 @@ int main()
 
     cout << "Your matrix++:\n";
     (++(*sqmatrix)).print();
-    ((*sqmatrix)++).print();
-
+    
     delete defaultMatrix;
     delete sqmatrix;
     delete matrixCopy;

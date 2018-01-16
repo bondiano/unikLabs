@@ -1,6 +1,6 @@
-QT += gui qml
+QT += gui qml core
 TEMPLATE = app
-CONFIG += c++11
+CONFIG += c++11 console
 
 SOURCES += main.cpp \
     indexfile.cpp \
